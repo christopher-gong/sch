@@ -13,10 +13,13 @@ public class CalEvent {
     public String courseName;
     public String classN;
     public String sectionNumber;
+    public String calName;
+    public String shortCourseName;
     public String location;
     public String meetingDates;
     public String DateTime;
     public String allText;
+    public String desc;
     public DateTime startDateTime;
     public DateTime endDateTime;
     public String[] recurrence;
@@ -84,6 +87,11 @@ public class CalEvent {
         }
         rec = rec + days;
         recurrence = new String[] {rec};
+        shortCourseName = courseName.substring(0, courseName.indexOf(" ", courseName.indexOf(" ") + 1));
+        calName = shortCourseName + " " +
+                sectionNumber.substring(sectionNumber.indexOf("-") + 1, sectionNumber.indexOf("-") + 4);
+        desc = "Course Name: " + courseName + "\nCourse Number: " + classN + "\nSection Number: " + sectionNumber.substring(0, 7)
+        + "\nLocation: " + location + "\nMeeting Dates: " + meetingDates + "\nDate and Time: " + DateTime;
         System.out.println(rec);
     }
 

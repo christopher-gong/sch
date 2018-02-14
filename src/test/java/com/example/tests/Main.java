@@ -1,6 +1,7 @@
 package com.example.tests;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
     private static CalEvent[] events;
@@ -39,13 +40,17 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
+        //Scanner scanner = new Scanner(System.in);
+        //String classInput = scanner.nextLine();
+        //printer();
         //CalEvent c = new CalEvent("CS61B", "35432", "001-LEC", "Wheeler 150", "01/16/2018 - 05/04/2018", "MoWeFr 3:00PM - 3:59PM", "");
         //c.parse();
         //System.out.println(Arrays.toString(results));
-        int[] classes = {35432, 35439, 35478, 35915, 35897, 37205, 38343, 39838};
+        //int[] classes = {35432, 35439, 35478, 35915, 35897, 37205, 38343, 39838};
+        int[] classes = {35432, 35915, 39838};
         setup(classes);
         for (CalEvent e: events) {
-            ClassAdder.addClass(e.courseName, e.location, "desc", e.startDateTime, e.endDateTime, e.recurrence);
+            ClassAdder.addClass(e.calName, e.location, e.desc, e.startDateTime, e.endDateTime, e.recurrence, e.shortCourseName);
         }
     }
 }

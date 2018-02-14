@@ -102,7 +102,7 @@ public class ClassAdder {
     }
 
     public static void addClass(String courseName, String location, String description,
-                                DateTime startDateTime, DateTime endDateTime, String[] recurrence) throws IOException {
+                                DateTime startDateTime, DateTime endDateTime, String[] recurrence, String shortCourseName) throws IOException {
         com.google.api.services.calendar.Calendar service =
                 getCalendarService();
 
@@ -125,6 +125,7 @@ public class ClassAdder {
 
         String calendarId = "primary";
         event = service.events().insert(calendarId, event).execute();
+        System.out.println("Added your class "+ shortCourseName + " successfully!");
         System.out.printf("Event created: %s\n", event.getHtmlLink());
 
     }
