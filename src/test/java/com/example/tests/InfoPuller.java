@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
 
-public class TestClass2 {
+public class InfoPuller {
     private Selenium selenium;
     public String courseName;
     public String classN;
@@ -48,7 +48,7 @@ public class TestClass2 {
     }
 
     @Test
-    public void testUntitledTestCase(int classNbr) throws Exception {
+    public void populate(int classNbr) throws Exception {
         String classNumber = Integer.toString(classNbr);
         selenium.click("id=SSR_CLSRCH_WRK_CLASS_NBR$9");
         TimeUnit.SECONDS.sleep(1);
